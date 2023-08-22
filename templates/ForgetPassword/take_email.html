@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block taitle %}Forget Password{% endblock taitle %}</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static 'css/take_email.css' %}">
+
+    <style>
+        body{
+            background-color: rgb(56, 96, 197);
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <main class="login-form" style="margin-top: 150px;">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header">Forget Password</div>
+                            <div class="card-body">
+
+                                <form id="take_email">
+                                    {% csrf_token %}
+                                    <div id="alart_msg"></div>
+
+                                    <div class="form-group row">
+                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                        </div>
+                                    </div>
+            
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Send
+                                        </button>
+                                        <a href="{% url 'login' %}" class="btn btn-danger">
+                                            Cancel
+                                        </a>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock content %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="{% static 'js/ForgetPass/take_email.js' %}" type="module"></script>
+
+
+    {% block js %}
+
+
+
+
+
+
+    {% endblock js %}
+</body>
+</html>
+
+
+
